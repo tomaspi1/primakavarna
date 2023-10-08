@@ -1,13 +1,4 @@
 header {
-	background: lightgreen;
-	height:100px;
-	display:flex;
-	justify-content:center;
-	
-	}
-	
-	.container {
-		background: lightpink;
-		height: 100px;
-		width: 1000px;
-	}
+	background-image: url(../img/header.jpg);
+	height: 400px;
+}
