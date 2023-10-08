@@ -10,6 +10,7 @@ menu {
 	background: rgba(72, 52, 42, 0.7);
 	display: flex;
 	justify-content: center;
+	padding: 0 5px;
 }
 
 header .container {
@@ -83,4 +84,15 @@ header .nadpis .social a {
 	color:white;
 	font-size: 40px;
 	margin: 0 10px;
+}
+
+header .nadpis .social a:hover i.fa-facebook {
+	color:#1877F2;
+}
+
+header .nadpis .social a:hover i.fa-instagram {
+	color:#E4405F;
+}
+header .nadpis .social a:hover i.fa-youtube {
+	color:#CD201F;
 }
