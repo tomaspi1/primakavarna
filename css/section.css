@@ -1,0 +1,21 @@
+section {
+	display:flex;
+	justify-content:center;
+}
+
+h1 {
+
+	text-align: center;
+	font-size:80px;
+	margin: 0.5em 0;
+}
+
+section p {
+	font-size: 1.5rem;
+	line-height: 150% ;
+	text-align: justify;
+ 	margin: 1em 0;
+	text-indent: 1em;
+}
+
+/* text-align je zarovnání do bloku */
