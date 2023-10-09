@@ -28,6 +28,7 @@ header nav {
 header nav ul {
 	display: flex;
 	column-gap: 5px;
+
 }
 
 
@@ -96,3 +97,57 @@ header .nadpis .social a:hover i.fa-instagram {
 header .nadpis .social a:hover i.fa-youtube {
 	color:#CD201F;
 }
+
+@media (max-width: 700px) {
+	header .container {
+		flex-direction:column;
+	}
+header nav ul {
+	flex-direction: column;
+}
+header nav {
+	justify-content:center ;
+	margin-top:15px; 
+}
+
+
+header nav ul li {
+justify-content: center;
+
+}
+
+
+header nav ul li a{
+	padding:10px 20px;
+	
+	}
+
+	
+header a.logo{
+	display:flex;
+	justify-content: center;
+	}
+
+
+	header .nadpis {
+		margin-top:30px;
+	}
+
+	header .nadpis {
+		font-size:10vw;
+	}
+
+	header .nadpis h2{
+		font-size:1em;
+	}
+
+	header .nadpis h3{
+		font-size:0.3em;
+	}
+
+	header .nadpis .social a{
+		font-size: 0.8em;
+		margin: 0 0.2em;
+	}
+}
+
