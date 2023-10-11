@@ -11,6 +11,8 @@ section p {
     text-indent: 1em;
 }
 
+/* DOMU - onas */
+
 section>.domu .onas {
     display: flex;
     justify-content: center;
@@ -73,18 +75,82 @@ section>.domu .onas .boxy .karta a:hover i {
     section>.domu .onas .boxy .kart h2 {
         margin-top: 0;
 
-        }
+    }
 
 }
+
 @media (max-width: 650px) {
     section>.domu .onas .boxy .karta {
-        flex-direction:column;
-        align-items:center;
+        flex-direction: column;
+        align-items: center;
 
     }
-section>.domu .onas .boxy .karta {
-margin-top:1em;
+
+    section>.domu .onas .boxy .karta {
+        margin-top: 1em;
+
+    }
 
 }
 
+/* DOMU - AKCE */
+
+section>.domu .akce {
+    display: flex;
+    margin-top: 3em;
+}
+
+section>.domu .akce .levy {
+    width: 50%;
+    background: #a0785D;
+    display: flex;
+    justify-content: flex-end;
+    padding: 2em;
+    text-align: right;
+    color: white;
+}
+
+section>.domu .akce .levy .boxy {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5em;
+
+}
+
+section>.domu .akce .levy .boxy h2 {
+    font-size: 2em;
+    margin: 0.5em 0;
+}
+
+
+
+
+
+section>.domu .akce .pravy {
+    width: 50%;
+    background: url(../img/zrnka-kavy.jpg);
+    background-position: 50% 50%;
+    background-size: cover;
+    display: flex;
+
+}
+
+section>.domu .akce .pravy .lista {
+    background: rgb(161, 121, 94, 0.7);
+    width: 100px;
+}
+
+@media (max-width: 700px) {
+    section>.domu .akce .pravy {
+        width: 20%;
+    }
+
+    section>.domu .akce .lista {
+        display: none;
+    }
+
+    section>.domu .akce .levy {
+        width: 80%;
+    }
 }
