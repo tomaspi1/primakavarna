@@ -280,3 +280,73 @@ section>.galerie .obsah .fotky {
     margin-top:3em;
     justify-content: center;
 }
+
+/* REZERVACE - obsah */
+section > .rezervace .obsah {
+    display: flex;
+    justify-content: center;
+}
+section > .rezervace .obsah .kontakt {
+    margin-top: 3em;
+    text-align: center;
+    line-height: 150%;
+    font-size: 1.2em;
+}
+section > .rezervace .obsah .kontakt a {
+    text-decoration: none;
+    color: #805F49;
+}
+section > .rezervace .obsah .kontakt a:hover {
+    text-decoration: underline;
+}
+
+section > .rezervace .obsah .formular {
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
+
+}
+section > .rezervace .obsah form {
+    width: 80%;
+}
+
+section > .rezervace .obsah .formular .radka {
+    position: relative;
+    margin-top: 1em;
+}
+
+section > .rezervace .obsah form .prvek{
+    width: 100%;
+    font-size: 2em;
+    padding: 0.3em;
+    padding-top: 1em;
+    transition: all 0.2s ease;
+    font-family:Arial ;
+
+}
+
+section > .rezervace .obsah form .prvek:placeholder-shown {
+    padding-top: 0.3em;
+}
+section > .rezervace .obsah form label {
+    position: absolute;
+    top: 0.5em;
+    left: 15px;
+    color:#805F49;
+    font-weight:bold;
+    transition: all 0.2s ease;
+
+}
+
+section > .rezervace .obsah form .prvek:placeholder-shown + label {
+font-size: 2em;
+color:rgb(187, 187, 187);
+left: 15px; 
+}
+
+section > .rezervace .obsah form button {
+    border-radius: 10px;
+    padding: 1em 2em;
+    font-size:1.3em;
+    font-weight: bold;
+}
