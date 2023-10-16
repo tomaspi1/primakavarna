@@ -16,32 +16,28 @@ section p {
 }
 
 /* DOMU - onas */
-
-section>.domu .onas {
+section > .domu .onas {
     display: flex;
     justify-content: center;
 }
 
-section>.domu .onas .boxy {
+section > .domu .onas .boxy {
     display: flex;
     justify-content: space-between;
     margin-top: 3em;
 }
-
-section>.domu .onas .boxy .karta {
+section > .domu .onas .boxy .karta {
     flex-basis: 0;
     text-align: center;
 }
-
-section>.domu .onas .boxy .karta h2 {
+section > .domu .onas .boxy .karta h2 {
     font-size: 2em;
     margin: 1em 0;
     border-bottom: 1px solid black;
     display: inline-block;
     padding-bottom: 10px;
 }
-
-section>.domu .onas .boxy .karta a {
+section > .domu .onas .boxy .karta a {
     text-decoration: none;
     color: black;
     padding: 1em 2em;
@@ -51,145 +47,111 @@ section>.domu .onas .boxy .karta a {
     margin-top: 3em;
     transition: all 0.2s ease;
 }
-
-section>.domu .onas .boxy .karta a:hover {
+section > .domu .onas .boxy .karta a:hover {
     border: 1px solid black;
 }
-
-section>.domu .onas .boxy .karta a i {
+section > .domu .onas .boxy .karta a i {
     margin-left: 1em;
     transition: all 0.2s ease;
 }
-
-section>.domu .onas .boxy .karta a:hover i {
+section > .domu .onas .boxy .karta a:hover i {
     transform: translateX(10px);
 }
 
 @media (max-width: 1035px) {
-    section>.domu .onas .boxy {
+    section > .domu .onas .boxy {
         flex-direction: column;
         row-gap: 4em;
     }
-
-    section>.domu .onas .boxy .karta {
+    section > .domu .onas .boxy .karta {
         display: flex;
         column-gap: 2em;
     }
-
-    section>.domu .onas .boxy .kart h2 {
+    section > .domu .onas .boxy .karta h2 {
         margin-top: 0;
-
     }
-
 }
-
 @media (max-width: 650px) {
-    section>.domu .onas .boxy .karta {
+    section > .domu .onas .boxy .karta {
         flex-direction: column;
         align-items: center;
-
     }
-
-    section>.domu .onas .boxy .karta {
+    section > .domu .onas .boxy .karta h2 {
         margin-top: 1em;
-
     }
-
 }
 
-/* DOMU - AKCE */
-
-section>.domu .akce {
+/* DOMU - akce */
+section > .domu .akce {
     display: flex;
     margin-top: 3em;
 }
-
-section>.domu .akce .levy {
+section > .domu .akce .levy {
     width: 50%;
-    background: #a0785D;
+    background: #A0785D;
     display: flex;
     justify-content: flex-end;
     padding: 2em;
     text-align: right;
     color: white;
 }
-
-section>.domu .akce .levy .boxy {
+section > .domu .akce .levy .boxy {
     width: 500px;
     display: flex;
     flex-direction: column;
     row-gap: 1.5em;
-
 }
-
-section>.domu .akce .levy .boxy h2 {
+section > .domu .akce .levy .boxy h2 {
     font-size: 2em;
     margin: 0.5em 0;
 }
 
-
-
-
-
-section>.domu .akce .pravy {
+section > .domu .akce .pravy {
     width: 50%;
     background: url(../img/zrnka-kavy.jpg);
     background-position: 50% 50%;
     background-size: cover;
     display: flex;
-
 }
-
-section>.domu .akce .pravy .lista {
-    background: rgb(161, 121, 94, 0.7);
+section > .domu .akce .pravy .lista {
+    background: rgb(160, 120, 93, 0.7);
     width: 100px;
 }
 
 @media (max-width: 700px) {
-    section>.domu .akce .pravy {
+    section > .domu .akce .pravy {
         width: 20%;
     }
-
-    section>.domu .akce .lista {
+    section > .domu .akce .pravy .lista {
         display: none;
     }
-
-    section>.domu .akce .levy {
+    section > .domu .akce .levy {
         width: 80%;
     }
 }
 
 /* DOMU - tip */
-
-section>.domu .tip {
+section > .domu .tip {
     display: flex;
     justify-content: center;
     margin-top: 3em;
-
-
 }
-
-section>.domu .tip .container {
+section > .domu .tip .container {
     display: flex;
     column-gap: 50px;
     align-items: center;
 }
-
-section>.domu .tip .container .fotky {
+section > .domu .tip .container .fotky {
     display: flex;
     column-gap: 50px;
 }
-
-section>.domu .tip .container .fotky img {
+section > .domu .tip .container .fotky img {
     box-shadow: 15px 15px #805F49;
 }
-
-
-section>.domu .tip .container .text h2 {
+section > .domu .tip .container .text h2 {
     font-size: 2em;
 }
-
-section>.domu .tip .container .text p {
+section > .domu .tip .container .text p {
     margin-top: 1em;
     font-size: 1.2em;
 }
@@ -205,5 +167,68 @@ section>.domu .tip .container .text p {
     section > .domu .tip .container .fotky img {
         width: 30vw;
         height: 45vw;
+    }
+}
+
+/* NABIDKA - obsah */
+section > .nabidka .obsah {
+    display: flex;
+    justify-content: center;
+}
+
+section > .nabidka .obsah .boxy {
+    margin-top: 3em;
+}
+section > .nabidka .obsah .boxy .karta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2em;
+    
+}
+section > .nabidka .obsah .boxy .karta .obrazek {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "obrazek";
+    align-items: center;
+    justify-items: center;
+}
+section > .nabidka .obsah .boxy .karta .obrazek h2 {
+    grid-area: obrazek;
+    z-index: 1;
+    color: white;
+    font-size: 4em;
+    text-shadow: 2px 2px 5px black;
+    text-transform: uppercase;
+}
+section > .nabidka .obsah .boxy .karta .obrazek img {
+    grid-area: obrazek;
+}
+section > .nabidka .obsah .boxy .karta .cenik {
+    line-height: 150%;
+    font-size: 1.3em;
+}
+section > .nabidka .obsah .boxy .karta .cenik th {
+    text-align: right;
+    font-weight: bold;
+    padding-right: 1em;
+}
+section > .nabidka .obsah .boxy .karta .cenik td {
+    text-align: right;
+}
+@media (max-width: 1000px) {
+    section > .nabidka .obsah .boxy .karta {
+        flex-direction: column;
+        row-gap: 1em;
+    }
+}
+@media (max-width: 550px) {
+    section > .nabidka .obsah .boxy .karta .obrazek img {
+        width: 90vw;
+        height: 60vw;
+    }
+    section > .nabidka .obsah .boxy .karta .obrazek h2 {
+        font-size: 10vw;
     }
 }
