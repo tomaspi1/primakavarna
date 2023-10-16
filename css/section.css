@@ -350,3 +350,89 @@ section > .rezervace .obsah form button {
     font-size:1.3em;
     font-weight: bold;
 }
+
+/* KONTAKT - info */
+section > .kontakt .info {
+    display: flex;
+    justify-content: center;
+}
+
+section > .kontakt .info .informace {
+    display: flex;
+    justify-content: space-around;
+    line-height: 150%;
+    font-size: 1.2em;
+}
+
+section > .kontakt .info .informace h2 {
+    font-size: 2em;
+    margin: 0.5em 0;
+}
+section > .kontakt .info .informace a {
+    text-decoration: none;
+    color: #805F49;
+}
+section > .kontakt .info .informace a:hover {
+    text-decoration: underline;
+}
+section > .kontakt .info .informace .otevreno th {
+    text-align: right;
+    font-weight: bold;
+    padding-right: 1em;
+}
+
+section > .kontakt .mapa {
+    margin-top: 3em;
+}
+
+section > .kontakt .obsah {
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
+}
+
+section > .kontakt .obsah h2 {
+    font-size: 2em;
+    margin: 0.5em 0;
+    text-align: center;
+}
+section > .kontakt .obsah .formular {
+    display: flex;
+    justify-content: center;
+}
+section > .kontakt .obsah form {
+    width: 80%;
+}
+section > .kontakt .obsah .formular .radka {
+    position: relative;
+    margin-top: 1em;
+}
+section > .kontakt .obsah form .prvek {
+    width: 100%;
+    font-size: 2em;
+    padding: 0.3em;
+    padding-top: 1em;
+    transition: all 0.2s ease;
+    font-family: Arial;
+}
+section > .kontakt .obsah form .prvek:placeholder-shown {
+    padding-top: 0.3em;
+}
+section > .kontakt .obsah form label {
+    position: absolute;
+    top: 0.5em;
+    left: 15px;
+    color: #805F49;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+section > .kontakt .obsah form .prvek:placeholder-shown + label {
+    font-size: 2em;
+    color: rgb(187, 187, 187);
+}
+section > .kontakt .obsah form button {
+    border-radius: 10px;
+    padding: 1em 2em;
+    font-size: 1.3em;
+    font-weight: bold;
+}
