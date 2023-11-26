@@ -12,6 +12,16 @@ class Stranka
         $this->titulek = $titulek;
         $this->menu = $menu;
     }
+
+    function getObsah()
+    {
+        return file_get_contents("$this->id.html");
+    }
+
+    function setObsah($obsah)
+    {
+        file_put_contents("$this->id.html", $obsah);
+    }
 }
 
 $seznamStranek = [

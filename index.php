@@ -81,7 +81,7 @@ else
 
     <section>
         <?php
-        echo file_get_contents("$stranka.html");
+        echo $seznamStranek[$stranka]->getObsah();
         ?>
     </section>
 

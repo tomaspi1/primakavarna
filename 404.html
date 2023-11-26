@@ -1,12 +1,7 @@
-# nejaky komentar
+<div class="stranka-neexistuje">
+    <h1>Stránka neexistuje</h1>
 
-# zapneme modul pro "prepisovani" url
-RewriteEngine On
-
-# pokud prijde pozadavek na jakekoliv url co neexistuje
-# napr. /kontakt nebo /blabla, tak misto toho zmenit url
-# na index.php?stranka=TOCOJEVURL
-# takze napr. /kontakt se nam zmeni na index.php?stranka=kontakt
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule (.+) index.php?stranka=$1 [L,QSA]
+    <div class="obrazek">
+        <img src="img/error.png" alt="Stránka neexistuje">
+    </div>
+</div>
