@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ea341a747ed113df5ad1f501985a1294",
+    "content-hash": "a9e54883c8d065859a63c69f37f7d094",
     "packages": [
         {
             "name": "tinymce/tinymce",
@@ -62,6 +62,42 @@
                 "source": "https://github.com/tinymce/tinymce-dist/tree/5.10.9"
             },
             "time": "2023-11-15T00:42:08+00:00"
+        },
+        {
+            "name": "tweeb/tinymce-i18n",
+            "version": "2.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tweeb/tinymce-i18n.git",
+                "reference": "058da08d6e61dc4e0279de6509bb6969a62f68e5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tweeb/tinymce-i18n/zipball/058da08d6e61dc4e0279de6509bb6969a62f68e5",
+                "reference": "058da08d6e61dc4e0279de6509bb6969a62f68e5",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "TinyMCE Community"
+                }
+            ],
+            "description": "Languages for TinyMCE 6",
+            "homepage": "https://github.com/tweeb/tinymce-i18n",
+            "keywords": [
+                "i18n",
+                "languages",
+                "tinymce"
+            ],
+            "support": {
+                "source": "https://github.com/tweeb/tinymce-i18n/tree/2.0.4"
+            },
+            "time": "2022-04-12T13:16:56+00:00"
         }
     ],
     "packages-dev": [],

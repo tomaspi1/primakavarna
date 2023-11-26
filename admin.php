@@ -58,6 +58,7 @@ if (array_key_exists("prihlasenyUzivatel", $_SESSION))
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrace</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <?php
@@ -117,7 +118,23 @@ if (array_key_exists("prihlasenyUzivatel", $_SESSION))
             <script src="vendor/tinymce/tinymce/tinymce.min.js"></script>
             <script type="text/javascript">
                 tinymce.init({
-                    selector: '#obsah'
+                    selector: '#obsah',
+                    language: 'cs',
+                    language_url: '<?php echo dirname($_SERVER["PHP_SELF"]); ?>/vendor/tweeb/tinymce-i18n/langs/cs.js',
+                    height: '50vh',
+                    entity_encoding: "raw",
+                    verify_html: false,
+                    content_css: [
+                        'css/reset.css',
+                        'css/section.css',
+                        'css/style.css',
+                        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css',
+                        'https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap',
+                    ],
+                    body_id: "content",
+                    plugins: 'advlist anchor autolink charmap code colorpicker contextmenu directionality emoticons fullscreen hr image imagetools insertdatetime link lists nonbreaking noneditable pagebreak paste preview print save searchreplace tabfocus table textcolor textpattern visualchars',
+                    toolbar1: "insertfile undo redo | styleselect | fontselect | fontsizeselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | forecolor backcolor",
+                    toolbar2: "link unlink anchor | fontawesome | image media | responsivefilemanager | preview code",
                 });
             </script>
             <?php
