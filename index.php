@@ -79,7 +79,7 @@ else
         </div>
     </header>
 
-    <section>
+    <section id="content">
         <?php
         echo $seznamStranek[$stranka]->getObsah();
         ?>

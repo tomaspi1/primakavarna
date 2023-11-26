@@ -1,6 +1,7 @@
 {
     "require": {
         "tinymce/tinymce": "5.10.9",
-        "tweeb/tinymce-i18n": "^2.0"
+        "tweeb/tinymce-i18n": "^2.0",
+        "primakurzy/responsivefilemanager": "^2.0"
     }
 }
