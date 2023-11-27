@@ -43,11 +43,39 @@ if (array_key_exists("prihlasenyUzivatel", $_SESSION))
         $instanceAktualniStranky = $seznamStranek[$idStranky];
     }
 
+    // zpracovani tlacitka Pridat
+    if (array_key_exists("pridat", $_GET))
+    {
+        $instanceAktualniStranky = new Stranka("", "","");
+    }
+
+    // zpracovani mazani
+    if (array_key_exists("smazat", $_GET))
+    {
+        $instanceAktualniStranky->smazat();
+        // po smazani stranky se musime presmerovat "domu"
+        header("Location: ?");
+    }
+
     // zpracovani formulare pro ulozeni
     if (array_key_exists("ulozit", $_POST))
     {
+        // poznamename si puvodni id nez si ho prepiseme
+        $puvodniId = $instanceAktualniStranky->id;
+
+        $instanceAktualniStranky->id = $_POST["id"];
+        $instanceAktualniStranky->titulek = $_POST["titulek"];
+        $instanceAktualniStranky->menu = $_POST["menu"];
+        // zavolame funkci pro ulozeni zmenenych hodnod do databaze
+        $instanceAktualniStranky->ulozit($puvodniId);
+
+        // ukladani obsahu stranky
         $obsah = $_POST["obsah"];
         $instanceAktualniStranky->setObsah($obsah);
+
+        // presmerujeme se na url s editaci stranky s novym id
+        // (kdyby se id zmenilo tak nesmime zustat na puvodni url)
+        header("Location: ?stranka=".urlencode($instanceAktualniStranky->id));
     }
 }
 ?>
@@ -130,21 +158,75 @@ if (array_key_exists("prihlasenyUzivatel", $_SESSION))
                 echo "<li class='list-group-item $active'>
                     <a class='btn $buttonClass' href='?stranka=$instanceStranky->id'><i class='fa-solid fa-pen-to-square'></i></a>
 
+                    <a class='btn $buttonClass' href='?stranka=$instanceStranky->id&smazat'><i class='fa-solid fa-trash-can'></i></a>
+
                     <a class='btn $buttonClass' href='$instanceStranky->id' target='_blank'><i class='fa-solid fa-eye'></i></a>
 
                     <span>$instanceStranky->id</span>
-                    </li>";
+                </li>";
             }
             echo "</ul>";
+
+            // formular s tlacitkem pro pridani stranky
+            ?>
+            <div class="container">
+                <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+                    <div class="col-md-3 text-start">
+                        <form>
+                            <button name='pridat' class="btn btn-outline-primary me-2">Přidat</button>
+                        </form>
+                    </div>
+                </header>
+            </div>
+            <?php
 
             // editacni formular
             // zobbrazit pokud je nejaka stranka vybrana k editaci
             if ($instanceAktualniStranky != null)
             {
-                echo "<div class='alert alert-secondary' role='alert'><h1>Editace stránky: $instanceAktualniStranky->id</h1></div>";
+                echo "<div class='alert alert-secondary' role='alert'><h1>";
+                if ($instanceAktualniStranky->id == "")
+                {
+                    echo "Přidávání stránky";
+                }
+                else
+                {
+                    echo "Editace stránky: $instanceAktualniStranky->id";
+                }
+                echo "</h1></div>";
 
                 ?>
                 <form method="post">
+                    <div>
+                        <label for="id">Id:</label>
+                        <input
+                            type="text"
+                            name="id"
+                            id="id"
+                            value="<?php echo htmlspecialchars($instanceAktualniStranky->id) ?>"
+                        >
+                    </div>
+
+                    <div>
+                        <label for="titulek">Titulek:</label>
+                        <input
+                            type="text"
+                            name="titulek"
+                            id="titulek"
+                            value="<?php echo htmlspecialchars($instanceAktualniStranky->titulek) ?>"
+                        >
+                    </div>
+
+                    <div>
+                        <label for="menu">Menu:</label>
+                        <input
+                            type="text"
+                            name="menu"
+                            id="menu"
+                            value="<?php echo htmlspecialchars($instanceAktualniStranky->menu) ?>"
+                        >
+                    </div>
+
                     <textarea id="obsah" name="obsah" cols="80" rows="15"><?php
                     echo htmlspecialchars($instanceAktualniStranky->getObsah());
                     ?></textarea>
@@ -157,7 +239,7 @@ if (array_key_exists("prihlasenyUzivatel", $_SESSION))
                         selector: '#obsah',
                         language: 'cs',
                         language_url: '<?php echo dirname($_SERVER["PHP_SELF"]); ?>/vendor/tweeb/tinymce-i18n/langs/cs.js',
-                        height: '100vh',
+                        height: '50vh',
                         entity_encoding: "raw",
                         verify_html: false,
                         content_css: [

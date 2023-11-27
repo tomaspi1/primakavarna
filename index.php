@@ -1,5 +1,5 @@
 <?php
-
+require "vendor/autoload.php";
 require "stranky.php";
 
 if (array_key_exists("stranka", $_GET))
@@ -81,7 +81,8 @@ else
 
     <section id="content">
         <?php
-        echo $seznamStranek[$stranka]->getObsah();
+        $obsah = $seznamStranek[$stranka]->getObsah();
+        echo primakurzy\Shortcode\Processor::process('shortcodes', $obsah);
         ?>
     </section>
 
