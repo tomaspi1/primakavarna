@@ -264,47 +264,6 @@
     text-decoration: underline;
 }
 
-#content > .rezervace .obsah .formular {
-    display: flex;
-    justify-content: center;
-    margin-top: 3em;
-}
-#content > .rezervace .obsah form {
-    width: 80%;
-}
-#content > .rezervace .obsah .formular .radka {
-    position: relative;
-    margin-top: 1em;
-}
-#content > .rezervace .obsah form .prvek {
-    width: 100%;
-    font-size: 2em;
-    padding: 0.3em;
-    padding-top: 1em;
-    transition: all 0.2s ease;
-    font-family: Arial;
-}
-#content > .rezervace .obsah form .prvek:placeholder-shown {
-    padding-top: 0.3em;
-}
-#content > .rezervace .obsah form label {
-    position: absolute;
-    top: 0.5em;
-    left: 15px;
-    color: #805F49;
-    font-weight: bold;
-    transition: all 0.2s ease;
-}
-#content > .rezervace .obsah form .prvek:placeholder-shown + label {
-    font-size: 2em;
-    color: rgb(187, 187, 187);
-}
-#content > .rezervace .obsah form button {
-    border-radius: 10px;
-    padding: 1em 2em;
-    font-size: 1.3em;
-    font-weight: bold;
-}
 #content > .rezervace .obsah h2 {
     margin-top: 3em;
     font-size: 2em;
@@ -345,29 +304,29 @@
     margin-top: 3em;
 }
 
-#content > .kontakt .obsah {
+#kontaktni-formular {
     display: flex;
     justify-content: center;
     margin-top: 3em;
 }
 
-#content > .kontakt .obsah h2 {
+#kontaktni-formular h2 {
     font-size: 2em;
     margin: 0.5em 0;
     text-align: center;
 }
-#content > .kontakt .obsah .formular {
+#kontaktni-formular .formular {
     display: flex;
     justify-content: center;
 }
-#content > .kontakt .obsah form {
+#kontaktni-formular form {
     width: 80%;
 }
-#content > .kontakt .obsah .formular .radka {
+#kontaktni-formular .formular .radka {
     position: relative;
     margin-top: 1em;
 }
-#content > .kontakt .obsah form .prvek {
+#kontaktni-formular form .prvek {
     width: 100%;
     font-size: 2em;
     padding: 0.3em;
@@ -375,10 +334,10 @@
     transition: all 0.2s ease;
     font-family: Arial;
 }
-#content > .kontakt .obsah form .prvek:placeholder-shown {
+#kontaktni-formular form .prvek:placeholder-shown {
     padding-top: 0.3em;
 }
-#content > .kontakt .obsah form label {
+#kontaktni-formular form label {
     position: absolute;
     top: 0.5em;
     left: 15px;
@@ -386,18 +345,18 @@
     font-weight: bold;
     transition: all 0.2s ease;
 }
-#content > .kontakt .obsah form .prvek:placeholder-shown + label {
+#kontaktni-formular form .prvek:placeholder-shown + label {
     font-size: 2em;
     color: rgb(187, 187, 187);
 }
-#content > .kontakt .obsah form button {
+#kontaktni-formular form button {
     border-radius: 10px;
     padding: 1em 2em;
     font-size: 1.3em;
     font-weight: bold;
 }
 
-#content > .kontakt .obsah form .status {
+#kontaktni-formular form .status {
     position: absolute;
     right: 0;
     top: 0;
@@ -406,18 +365,18 @@
     align-items: center;
     font-size: 50px;
 }
-#content > .kontakt .obsah form .status .spravne {
+#kontaktni-formular form .status .spravne {
     color: green;
     display: none;
 }
-#content > .kontakt .obsah form .status .spatne {
+#kontaktni-formular form .status .spatne {
     color: red;
     display: none;
 }
-#content > .kontakt .obsah form .status.ok .spravne {
+#kontaktni-formular form .status.ok .spravne {
     display: block;
 }
-#content > .kontakt .obsah form .status.chyba .spatne {
+#kontaktni-formular form .status.chyba .spatne {
     display: block;
 }
 
