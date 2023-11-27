@@ -5,9 +5,11 @@ $telefon = "";
 $email = "";
 $zprava = "";
 $odeslano = false;
+$formularOdeslan = false;
 if (array_key_exists("odeslat", $_POST))
 {
     // formular byl odeslan
+    $formularOdeslan = true;
     $jmeno = $_POST["jmeno"];
     $telefon = $_POST["telefon"];
     $email = $_POST["email"];
@@ -70,41 +72,81 @@ if (array_key_exists("odeslat", $_POST))
                         <input class="prvek" type="text" name="jmeno" id="jmeno" placeholder=" " value="<?php echo htmlspecialchars($jmeno) ?>" />
                         <label for="jmeno">Jméno</label>
                         <?php
-                        if (array_key_exists("jmeno", $chyby))
+                        $status = "";
+                        if ($formularOdeslan)
                         {
-                            echo "<div class='chyba'>{$chyby['jmeno']}</div>";
+                            $status = "ok";
+                            if (array_key_exists("jmeno", $chyby))
+                            {
+                                $status = "chyba";
+                                echo "<div class='chyba'>{$chyby['jmeno']}</div>";
+                            }
                         }
                         ?>
+                        <div class="status <?php echo $status ?>">
+                            <i class="spravne fa-solid fa-check"></i>
+                            <i class="spatne fa-solid fa-xmark"></i>
+                        </div>
                     </div>
                     <div class="radka">
                         <input class="prvek" type="text" name="telefon" id="telefon" placeholder=" "  value="<?php echo htmlspecialchars($telefon) ?>" />
                         <label for="telefon">Telefon</label>
                         <?php
-                        if (array_key_exists("telefon", $chyby))
+                        $status = "";
+                        if ($formularOdeslan)
                         {
-                            echo "<div class='chyba'>{$chyby['telefon']}</div>";
+                            $status = "ok";
+                            if (array_key_exists("telefon", $chyby))
+                            {
+                                $status = "chyba";
+                                echo "<div class='chyba'>{$chyby['telefon']}</div>";
+                            }
                         }
                         ?>
+                        <div class="status <?php echo $status ?>">
+                            <i class="spravne fa-solid fa-check"></i>
+                            <i class="spatne fa-solid fa-xmark"></i>
+                        </div>
                     </div>
                     <div class="radka">
                         <input class="prvek" type="text" name="email" id="email" placeholder=" "  value="<?php echo htmlspecialchars($email) ?>"/>
                         <label for="email">E-mail</label>
                         <?php
-                        if (array_key_exists("email", $chyby))
+                        $status = "";
+                        if ($formularOdeslan)
                         {
-                            echo "<div class='chyba'>{$chyby['email']}</div>";
+                            $status = "ok";
+                            if (array_key_exists("email", $chyby))
+                            {
+                                $status = "chyba";
+                                echo "<div class='chyba'>{$chyby['email']}</div>";
+                            }
                         }
                         ?>
+                        <div class="status <?php echo $status ?>">
+                            <i class="spravne fa-solid fa-check"></i>
+                            <i class="spatne fa-solid fa-xmark"></i>
+                        </div>
                     </div>
                     <div class="radka">
                         <textarea class="prvek" name="zprava" id="zprava" placeholder=" " rows="3"><?php echo htmlspecialchars($zprava) ?></textarea>
                         <label for="zprava">Zpráva</label>
                         <?php
-                        if (array_key_exists("zprava", $chyby))
+                        $status = "";
+                        if ($formularOdeslan)
                         {
-                            echo "<div class='chyba'>{$chyby['zprava']}</div>";
+                            $status = "ok";
+                            if (array_key_exists("zprava", $chyby))
+                            {
+                                $status = "chyba";
+                                echo "<div class='chyba'>{$chyby['zprava']}</div>";
+                            }
                         }
                         ?>
+                        <div class="status <?php echo $status ?>">
+                            <i class="spravne fa-solid fa-check"></i>
+                            <i class="spatne fa-solid fa-xmark"></i>
+                        </div>
                     </div>
                     <div class="radka">
                         <button name="odeslat">Odeslat</button>
@@ -123,3 +165,54 @@ if (array_key_exists("odeslat", $_POST))
         font-weight: bold;
     }
 </style>
+
+<script>
+    $("#kontaktni-formular [name]").on("input", (udalost) => {
+        const input = udalost.currentTarget;
+        const nazevInputu = input.getAttribute("name");
+        const hodnotaInputu = input.value;
+        //console.log(hodnotaInputu);
+
+        let ok = true;
+        if (nazevInputu == "jmeno")
+        {
+            // validace jmena
+            if (hodnotaInputu.length < 5)
+            {
+                ok = false;
+            }
+        }
+        else if (nazevInputu == "telefon")
+        {
+            if (hodnotaInputu.length < 9)
+            {
+                ok = false;
+            }
+        }
+        else if (nazevInputu == "email")
+        {
+            if (hodnotaInputu.match(/.+@.+\..+/) == null)
+            {
+                ok = false;
+            }
+        }
+        else if (nazevInputu == "zprava")
+        {
+            if (hodnotaInputu.length < 5)
+            {
+                ok = false;
+            }
+        }
+
+        // zvizualizujeme vysledek validace
+        const statusElement = document.querySelector(`#kontaktni-formular [name=${nazevInputu}]~.status`);
+        if (ok)
+        {
+            statusElement.className = "status ok";
+        }
+        else
+        {
+            statusElement.className = "status chyba";
+        }
+    });
+</script>

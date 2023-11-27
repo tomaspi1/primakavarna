@@ -397,6 +397,30 @@
     font-weight: bold;
 }
 
+#content > .kontakt .obsah form .status {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: grid;
+    align-items: center;
+    font-size: 50px;
+}
+#content > .kontakt .obsah form .status .spravne {
+    color: green;
+    display: none;
+}
+#content > .kontakt .obsah form .status .spatne {
+    color: red;
+    display: none;
+}
+#content > .kontakt .obsah form .status.ok .spravne {
+    display: block;
+}
+#content > .kontakt .obsah form .status.chyba .spatne {
+    display: block;
+}
+
 /* Stranka neexistuje */
 #content > .stranka-neexistuje .obrazek {
     display: flex;

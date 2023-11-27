@@ -13,7 +13,7 @@ window.addEventListener("scroll", (udalost) => {
     const poziceHeaderu = header.getBoundingClientRect();
     //console.log(poziceHeaderu);
 
-    if (window.scrollY > poziceHeaderu.bottom)
+    if (window.scrollY > poziceHeaderu.height)
     {
         nahoru.classList.add("zobrazit");
     }

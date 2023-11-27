@@ -46,6 +46,8 @@ else
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
 
     <link rel="stylesheet" href="vendor/photoswipe/dist/photoswipe.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
