@@ -77,6 +77,21 @@ if (array_key_exists("prihlasenyUzivatel", $_SESSION))
         // (kdyby se id zmenilo tak nesmime zustat na puvodni url)
         header("Location: ?stranka=".urlencode($instanceAktualniStranky->id));
     }
+
+    // zpracovani pozadavku zmeny poradi stranek z javascriptu (ajaxem)
+    if (array_key_exists("poradi", $_GET))
+    {
+        $poradi = $_GET["poradi"];
+
+        // zavolani funkce pro nastaveni poradi a ulozeni do db
+        Stranka::nastavitPoradi($poradi);
+
+        // odpovime javascriptu ze je to ok
+        echo "OK";
+        // skript ukoncime aby do javascriptu se negeneroval zbytek
+        // html stranky
+        exit;
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -92,6 +107,9 @@ if (array_key_exists("prihlasenyUzivatel", $_SESSION))
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="css/admin.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 </head>
 <body>
     <div class="admin-body">
@@ -155,10 +173,10 @@ if (array_key_exists("prihlasenyUzivatel", $_SESSION))
                     $active = 'active';
                     $buttonClass = 'btn-secondary';
                 }
-                echo "<li class='list-group-item $active'>
+                echo "<li class='list-group-item $active' id='$instanceStranky->id'>
                     <a class='btn $buttonClass' href='?stranka=$instanceStranky->id'><i class='fa-solid fa-pen-to-square'></i></a>
 
-                    <a class='btn $buttonClass' href='?stranka=$instanceStranky->id&smazat'><i class='fa-solid fa-trash-can'></i></a>
+                    <a class='smazat btn $buttonClass' href='?stranka=$instanceStranky->id&smazat'><i class='fa-solid fa-trash-can'></i></a>
 
                     <a class='btn $buttonClass' href='$instanceStranky->id' target='_blank'><i class='fa-solid fa-eye'></i></a>
 
@@ -197,34 +215,40 @@ if (array_key_exists("prihlasenyUzivatel", $_SESSION))
 
                 ?>
                 <form method="post">
-                    <div>
-                        <label for="id">Id:</label>
+                    <div class="form-floating">
                         <input
+                            class="form-control"
                             type="text"
                             name="id"
                             id="id"
                             value="<?php echo htmlspecialchars($instanceAktualniStranky->id) ?>"
+                            placeholder="Id"
                         >
+                        <label for="id">Id</label>
                     </div>
 
-                    <div>
-                        <label for="titulek">Titulek:</label>
+                    <div class="form-floating">
                         <input
+                            class="form-control"
                             type="text"
                             name="titulek"
                             id="titulek"
                             value="<?php echo htmlspecialchars($instanceAktualniStranky->titulek) ?>"
+                            placeholder="Titulek"
                         >
+                        <label for="titulek">Titulek</label>
                     </div>
 
-                    <div>
-                        <label for="menu">Menu:</label>
+                    <div class="form-floating">
                         <input
+                            class="form-control"
                             type="text"
                             name="menu"
                             id="menu"
                             value="<?php echo htmlspecialchars($instanceAktualniStranky->menu) ?>"
+                            placeholder="Menu"
                         >
+                        <label for="menu">Menu</label>
                     </div>
 
                     <textarea id="obsah" name="obsah" cols="80" rows="15"><?php
@@ -267,5 +291,7 @@ if (array_key_exists("prihlasenyUzivatel", $_SESSION))
         }
         ?>
     </div>
+
+    <script src="js/admin.js"></script>
 </body>
 </html>

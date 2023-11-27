@@ -18,7 +18,8 @@ if (array_key_exists("stranka", $_GET))
 }
 else
 {
-    $stranka = "uvod";
+    // zjistime prvni stranku z pole seznamStranek
+    $stranka = array_key_first($seznamStranek);
 }
 
 
@@ -43,6 +44,8 @@ else
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="vendor/photoswipe/dist/photoswipe.css">
 </head>
 <body>
     <header>
@@ -133,5 +136,9 @@ else
             </div>
         </div>
     </footer>
+
+    <div id="nahoru"><i class="fa-solid fa-angle-up"></i></div>
+
+    <script src="js/index.js"></script>
 </body>
 </html>

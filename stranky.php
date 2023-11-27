@@ -89,6 +89,18 @@ class Stranka
         $dotaz = $db->prepare("DELETE FROM stranka WHERE id = ?");
         $dotaz->execute([$this->id]);
     }
+
+    static function nastavitPoradi($poradi)
+    {
+        global $db;
+
+        // projdeme pole s poradim (pole je cislovane)
+        foreach ($poradi as $cislo => $idStranky)
+        {
+            $dotaz = $db->prepare("UPDATE stranka SET poradi = ? WHERE id = ?");
+            $dotaz->execute([$cislo, $idStranky]);
+        }
+    }
 }
 
 /*

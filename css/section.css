@@ -237,7 +237,7 @@
     display: flex;
     justify-content: center;
 }
-#content > .galerie .obsah .fotky {
+#content .fotogalerie {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
